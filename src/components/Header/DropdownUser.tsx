@@ -39,6 +39,8 @@ const DropdownUser = () => {
     return () => document.removeEventListener("keydown", keyHandler);
   });
 
+  const {data } = useSession()
+
   return (
     <div className="relative">
       <Link
@@ -49,7 +51,7 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {data?.user.userName}
           </span>
           <span className="block text-xs">UX Designer</span>
         </span>

@@ -1,5 +1,6 @@
 import type { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from "next-auth/providers/credentials";
+import api from '@/api/authApi'
 
 
 
@@ -15,23 +16,11 @@ export const options: NextAuthOptions = {
             async authorize(credentials) {
 
                 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-                const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}Api/User/LogIn`,
-                    {
-                        method: "POST",
-                        body: JSON.stringify({
-                            username: credentials?.username,
-                            password: credentials?.password,
-                        }),
-                        headers: { "Content-Type": "application/json" },
-                    }
-                );
-                console.log(res.ok);
+                const res = await api.loginUser(credentials)
 
-                const data = await res.json();
-
-                console.log(data);
-                if (!res.ok) return
+                const {data,status} =  res;
+                
+                if (status !== 200) return
 
                 const { token, user } = data;
 

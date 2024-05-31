@@ -21,7 +21,7 @@ export default function RootLayout({
   }, []);
 
   return (
-    <html lang="en">
+    <html lang="es">
       <body >
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
           <SessionAuthProvider>
