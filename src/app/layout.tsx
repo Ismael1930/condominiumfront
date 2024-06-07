@@ -6,6 +6,7 @@ import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
 import { SessionAuthProvider } from '../context/SessionAuthProvider';
+import { NextUiProvider } from "@/context/NextUiProvider";
 
 export default function RootLayout({
   children,
@@ -25,7 +26,9 @@ export default function RootLayout({
       <body >
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
           <SessionAuthProvider>
-            {loading? <Loader/> :children}
+            <NextUiProvider>
+              {loading? <Loader/> :children}
+            </NextUiProvider>
           </SessionAuthProvider>
         </div>
       </body>
