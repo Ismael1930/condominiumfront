@@ -26,6 +26,9 @@ export default {
     },
     updateUser(data) {
         return api.post('Api/User/updateUser',data)
+    },
+    removeUser(data) {
+        return api.post('Api/User/removeUser',data)
     }
 }
 

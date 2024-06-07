@@ -18,6 +18,15 @@ const TableThree = () => {
 
   const [users, setUsers] = useState<user[]>([])
 
+  const RemoveUser = async (user) => {
+    console.log(user);
+    
+    const {data} = await api.removeUser(user)
+    console.log(data);
+    
+    
+  }
+
   useEffect(() => {
     const getUsers = async () => {
       const {data} = await api.getAllUsers()
@@ -68,10 +77,10 @@ const TableThree = () => {
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <div className="flex items-center space-x-3.5">
-                    <Link href={`/dashboard/users/edit/${user.id}`} className="hover:text-primary">
+                    <Link href={`/dashboard/miCondominio/residentes/edit/${user.id}`} className="hover:text-primary">
                      <FaUserEdit/>
                     </Link>
-                    <button className="hover:text-primary">
+                    <button className="hover:text-primary" onClick={() => RemoveUser(user)} >
                      <MdDelete/>
                     </button>
                   </div>
