@@ -19,12 +19,7 @@ const TableThree = () => {
   const [users, setUsers] = useState<user[]>([])
 
   const RemoveUser = async (user) => {
-    console.log(user);
-    
-    const {data} = await api.removeUser(user)
-    console.log(data);
-    
-    
+    await api.removeUser(user)
   }
 
   useEffect(() => {
@@ -33,7 +28,7 @@ const TableThree = () => {
       setUsers(data)
     }
     getUsers()
-  },[])
+  },[users])
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">

@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBuilding, FaCalculator, FaChevronDown, FaComments, FaPiggyBank, FaUsers } from "react-icons/fa";
+import { FaBuilding, FaCalculator, FaChevronDown, FaComments, FaHouseUser, FaPiggyBank, FaUsers } from "react-icons/fa";
 import { RiSurveyFill } from "react-icons/ri";
 import { PiTreeEvergreenFill } from "react-icons/pi";
 import { BsShieldLockFill } from "react-icons/bs";
@@ -147,6 +147,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                 >
                                   <FaUsers size={20} />
                                   Residentes
+                                </Link>
+                              </li>
+                              <li>
+                                <Link
+                                  href="/dashboard/miCondominio/tipoUnidad"
+                                  className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${pathname === "/dashboard/miCondominio/residentes" && "text-white"}`}
+                                >
+                                  <FaHouseUser size={20} />
+                                  Tipo de Unidad
                                 </Link>
                               </li>
                             </ul>

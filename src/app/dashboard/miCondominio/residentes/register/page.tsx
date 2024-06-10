@@ -1,9 +1,8 @@
 'use client'
 
 import api from '@/api/authApi'
-import DefaultLayout from '@/components/Layouts/DefaultLayout'
 import { useForm } from '@/hooks/useForm'
-import { redirect, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 

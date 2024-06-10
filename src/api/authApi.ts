@@ -25,10 +25,10 @@ export default {
         return api.get(`Api/User/getUserForId/${id}`)
     },
     updateUser(data) {
-        return api.post('Api/User/updateUser',data)
+        return api.put('Api/User/updateUser',data)
     },
     removeUser(data) {
-        return api.post('Api/User/removeUser',data)
+        return api.delete('Api/User/removeUser',{data})
     }
 }
 
