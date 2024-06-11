@@ -1,24 +1,20 @@
 'use client'
 
 import api from "@/api/authApi";
+import { user } from "@/types/authUser";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
- interface user {
-  id:String,
-  userName: String,
-  email: String,
-  phoneNumber: String
-}
+
 
 
 const TableThree = () => {
 
   const [users, setUsers] = useState<user[]>([])
 
-  const RemoveUser = async (user) => {
+  const RemoveUser = async (user:user) => {
     await api.removeUser(user)
   }
 

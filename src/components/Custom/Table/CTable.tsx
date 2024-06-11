@@ -1,9 +1,11 @@
+'use client'
 import React from 'react'
 import api from '@/api/unitType'
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip } from "@nextui-org/react"
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import Link from 'next/link';
+import {useRouter}  from 'next/navigation';
 
 interface RowDataItem {
     id: number;
@@ -18,12 +20,14 @@ interface Props {
 
 
 export const CTable = ({ headerData, rowData }: Props) => {
-
+    
+    const router = useRouter()
     const RemoveUnitType = async (unitType) => {
         await api.removeUnitType(unitType)
+        router.push('./tipoUnidad')
     }
-
-    return (
+        
+        return (
         <Table isStriped aria-label="Example static collection table">
             <TableHeader>
                 {headerData.map((head, key) => <TableColumn key={key}>{head}</TableColumn>)}

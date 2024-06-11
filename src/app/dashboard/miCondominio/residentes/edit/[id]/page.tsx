@@ -11,13 +11,6 @@ interface Props {
     params: { id: string };
 }
 
-interface user {
-    id: String,
-    userName: String,
-    email: String,
-    phoneNumber: String
-}
-
 export default function UserEditPage({ params }: Props) {
 
     const router = useRouter()

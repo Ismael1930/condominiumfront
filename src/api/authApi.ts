@@ -1,14 +1,15 @@
 
+import { Login, user, userRegister } from '@/types/authUser'
 import api from './index'
 
 
 export default {
 
-    userRegister(data) {
+    userRegister(data: userRegister) {
         return api.post('Api/User/userRegister',data)
     },
 
-    loginUser(data)  {
+    loginUser(data : Login)  {
        return  api.post('Api/User/LogIn', data)
     },
 
@@ -24,10 +25,10 @@ export default {
     getUserForId(id: String)  {
         return api.get(`Api/User/getUserForId/${id}`)
     },
-    updateUser(data) {
+    updateUser(data : user) {
         return api.put('Api/User/updateUser',data)
     },
-    removeUser(data) {
+    removeUser(data: user) {
         return api.delete('Api/User/removeUser',{data})
     }
 }
